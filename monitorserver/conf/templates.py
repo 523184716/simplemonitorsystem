@@ -22,7 +22,9 @@ class LinuxTemplate(BaseTemplate):
         self.name = 'LinuxTemplate'
         self.service = [
             linux.cpu,
-            linux.memory
+            linux.memory,
+            linux.load,
+            linux.disk
         ]
 
 class NetworkTemplate(BaseTemplate):
@@ -34,7 +36,9 @@ class NetworkTemplate(BaseTemplate):
         self.name = 'NetworkTemplate'
         self.service = [
             linux.cpu,
-            network.nic
+            network.nic,
+            linux.load,
+            linux.disk
         ]
 
 if __name__ == "__main__":

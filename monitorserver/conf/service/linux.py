@@ -51,3 +51,39 @@ class memory(generic.BaseService):
 
             }
         }
+
+class load(generic.BaseService):
+    def __init__(self):
+        super(load,self).__init__()
+        self.name = 'linux_load'
+        self.interval = 30
+        self.plugin_name = 'get_load_info'
+        self.triggers = {
+            'usage':{
+                'func':avg,
+                'minutes':15,
+                'operator':'gt',
+                'warning':80,
+                'criticla':90,
+                'data_type':'percentage'
+
+            }
+        }
+
+class disk(generic.BaseService):
+    def __init__(self):
+        super(disk,self).__init__()
+        self.name = 'linux_disk'
+        self.interval = 30
+        self.plugin_name = 'get_disk_info'
+        self.triggers = {
+            'usage':{
+                'func':avg,
+                'minutes':15,
+                'operator':'gt',
+                'warning':80,
+                'criticla':90,
+                'data_type':'percentage'
+
+            }
+        }
